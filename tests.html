@@ -32,6 +32,7 @@
       assert.equal(subtract(0, 4), -4, '0 - 4 = -4');
     });
 
+ bugfix/subtract-empty
     QUnit.test('subtract with empty inputs', assert => {
       document.getElementById('a').value = '';
       document.getElementById('b').value = '';
@@ -43,6 +44,14 @@
         'Shows warning if inputs are empty'
       );
     });
+
+  QUnit.test('multiply()', assert => {
+  assert.equal(multiply(2, 3), 6, '2 * 3 = 6');
+  assert.equal(multiply(-1, 5), -5, '-1 * 5 = -5');
+  assert.equal(multiply(0, 4), 0, '0 * 4 = 0');
+});
+
+main
   </script>
 </body>
 </html>
