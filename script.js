@@ -1,11 +1,17 @@
-function add(a, b) {
-  return a + b;
-}
+function calculateAndDisplay(fn) {
+  const rawA = document.getElementById('a').value;
+  const rawB = document.getElementById('b').value;
 
-function subtract(a, b) {
-  return a - b;
-}
+  if (rawA === '' || rawB === '') {
+    document.getElementById('result').textContent = 'Please fill both inputs';
+    return;
+  }
 
+ bugfix/subtract-empty
+  const a = Number(rawA);
+  const b = Number(rawB);
+  document.getElementById('result').textContent = fn(a, b);
+}
 function multiply(a, b) {
   return a * b;
 }
@@ -27,3 +33,4 @@ document.getElementById('btn-subtract').addEventListener('click', () => {
 document.getElementById('btn-multiply').addEventListener('click', () => {
   calculateAndDisplay(multiply);
 });
+main
