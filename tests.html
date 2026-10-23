@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,14 @@
 </head>
 <body>
   <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
+  <div id="qunit-fixture">
+    <input id="a" type="number">
+    <input id="b" type="number">
+    <button id="btn-add">Add</button>
+    <button id="btn-subtract">Subtract</button>
+    <button id="btn-multiply">Multiply</button>
+    <div id="result"></div>
+  </div>
 
   <script src="https://code.jquery.com/qunit/qunit-2.19.4.js"></script>
   <script src="script.js"></script>
@@ -23,6 +31,28 @@
       assert.equal(subtract(5, 3), 2, '5 - 3 = 2');
       assert.equal(subtract(0, 4), -4, '0 - 4 = -4');
     });
+
+ bugfix/subtract-empty
+    QUnit.test('subtract with empty inputs', assert => {
+      document.getElementById('a').value = '';
+      document.getElementById('b').value = '';
+      document.getElementById('btn-subtract').click();
+
+      assert.equal(
+        document.getElementById('result').textContent,
+        'Please fill both inputs',
+        'Shows warning if inputs are empty'
+      );
+    });
+
+  QUnit.test('multiply()', assert => {
+  assert.equal(multiply(2, 3), 6, '2 * 3 = 6');
+  assert.equal(multiply(-1, 5), -5, '-1 * 5 = -5');
+  assert.equal(multiply(0, 4), 0, '0 * 4 = 0');
+});
+
+main
   </script>
 </body>
 </html>
+```
